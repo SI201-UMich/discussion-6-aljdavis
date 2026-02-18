@@ -142,14 +142,14 @@ class HorseRaces:
         averages = {}
 
         for horse in self.race_dict:
-            total_time = 0
-            races = self.race_dict[horse]
+            total = 0
+            count = 0
 
-            for race in races:
-                total_time += race[1]   # race time is index 1
+            for race_name, time_str in self.race_dict[horse].items():
+                total += float(time_str)
+                count += 1
 
-            avg_time = total_time / len(races)
-            averages[horse] = avg_time
+            averages[horse] = total / count
 
         return averages
 
